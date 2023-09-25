@@ -1,5 +1,7 @@
 # SimpleWorship Display
 
+[![Build Linux](https://github.com/simpleworship/simpleworship-display/actions/workflows/build-linux.yml/badge.svg?event=release)](https://github.com/simpleworship/simpleworship-display/actions/workflows/build-linux.yml) [![Build OSX](https://github.com/simpleworship/simpleworship-display/actions/workflows/build-darwin.yml/badge.svg?event=release)](https://github.com/simpleworship/simpleworship-display/actions/workflows/build-darwin.yml) [![Build Windows](https://github.com/simpleworship/simpleworship-display/actions/workflows/build-windows.yml/badge.svg?event=release)](https://github.com/simpleworship/simpleworship-display/actions/workflows/build-windows.yml)
+
 This is a simple display application for [SimpleWorship](https://github.com/simpleworship/simpleworship) that finds running instances using SSDP and loads them.
 
 By default it will auto-load the first display it finds, while also giving you a context menu to change displays (and other settings) when you click anywhere on the screen.
