@@ -1,0 +1,17 @@
+name: Build OSX
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    permissions: write-all
+    runs-on: darwin-latest
+    steps:
+      - uses: actions/checkout@v2-
+        with:
+          submodules: recursive
+      - uses: dAppServer/wails-build-action@v2.1
+        with:
+          build-name: SimpleWorship Display OSX
+          build-platform: darwin/universal
+          nsis: false

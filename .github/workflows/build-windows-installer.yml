@@ -1,0 +1,17 @@
+name: Build Windows (Installer)
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    permissions: write-all
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2-
+        with:
+          submodules: recursive
+      - uses: dAppServer/wails-build-action@v2.1
+        with:
+          build-name: SimpleWorship Display Windows 64bit
+          build-platform: windows/amd64
+          nsis: true
