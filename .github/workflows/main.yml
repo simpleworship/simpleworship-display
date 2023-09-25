@@ -1,7 +1,10 @@
 name: Wails build
-on: [push, pull_request]
+on:
+  release:
+    types: [published]
 jobs:
   build:
+    permissions: write-all
     strategy:
       fail-fast: false
       matrix:
