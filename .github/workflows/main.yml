@@ -9,13 +9,13 @@ jobs:
       fail-fast: false
       matrix:
         build: [
-          {name: simpleworship-display, platform: linux/amd64, os: ubuntu-latest},
-          {name: simpleworship-display, platform: windows/amd64, os: windows-latest},
-          {name: simpleworship-display, platform: darwin/universal, os: macos-latest}
+          {name: simpleworship-display-linux.amd64, platform: linux/amd64, os: ubuntu-latest},
+          {name: simpleworship-display-window-64bit, platform: windows/amd64, os: windows-latest},
+          {name: simpleworship-display-osx, platform: darwin/universal, os: macos-latest}
         ]
     runs-on: ${{ matrix.build.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2-
         with:
           submodules: recursive
       - uses: dAppServer/wails-build-action@v2.1
