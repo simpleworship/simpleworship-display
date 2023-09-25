@@ -1,12 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>SimpleWorship-Display</title>
 </head>
 <body>
-<div id="app"></div>
+<div class="container">
+    
+   <h1>SimpleWorship Display</h1>
+   <p>Looking for server to load...</p>
+
+</div>
+<div id="overlay" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="staticBackdrop"></div>
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="menu" aria-labelledby="staticBackdropLabel">
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">SimpleWorship Display</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#menu" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Simple Worship Instances
+                </div>
+                <ul class="list-group list-group-flush" id="serverlist">
+                    <li class="list-group-item">No Instanced Loaded...</li>
+                </ul>
+                <div class="card-body">
+                    <h5 class="card-title">Don't see your instance?</h5>
+                    <p class="card-text">If your instance is not shown above, you can click below to search for more instances.</p>
+                    <button type="button" class="btn btn-primary" onClick="getServers()">Search for Instances</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /> <!-- lol im bad at front end -->
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Display Settings
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary" onClick="toggleFullscreen()">Toggle Fullscreen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+</div>
+<div id="display"><iframe id="displayframe" src="#"></iframe></div>
+
 <script src="./src/main.ts" type="module"></script>
 </body>
 </html>
