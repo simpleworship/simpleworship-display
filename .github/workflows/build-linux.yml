@@ -1,17 +1,23 @@
-name: Build Windows
+name: Build Linux
 on:
   release:
     types: [published]
 jobs:
   build:
     permissions: write-all
-    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build: [
+          {name: SimpleWorship Display amd64, platform: linux/amd64, os: ubuntu-latest},
+          {name: SimpleWorship Display arm64, platform: linux/arm64, os: ubuntu-latest},
+        ]
+    runs-on: ${{ matrix.build.os }}
     steps:
       - uses: actions/checkout@v2-
         with:
           submodules: recursive
       - uses: dAppServer/wails-build-action@v2.1
         with:
-          build-name: SimpleWorship Display Windows 64bit Standalone
-          build-platform: windows/amd64
-          nsis: false
+          build-name: ${{ matrix.build.name }}
+          build-platform: ${{ matrix.build.platform }}
