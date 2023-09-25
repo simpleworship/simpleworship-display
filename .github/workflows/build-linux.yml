@@ -5,19 +5,13 @@ on:
 jobs:
   build:
     permissions: write-all
-    strategy:
-      fail-fast: false
-      matrix:
-        build: [
-          {name: SimpleWorship Display amd64, platform: linux/amd64, os: ubuntu-latest},
-          {name: SimpleWorship Display arm64, platform: linux/arm64, os: ubuntu-latest},
-        ]
-    runs-on: ${{ matrix.build.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
       - uses: dAppServer/wails-build-action@v2.1
         with:
-          build-name: ${{ matrix.build.name }}
-          build-platform: ${{ matrix.build.platform }}
+          build-name: SimpleWorship Display linux/amd64
+          build-platform: linux/amd64
+          nsis: false
